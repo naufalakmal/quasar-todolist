@@ -4,24 +4,24 @@ import { uid } from 'quasar'
 const state = {
     // karena mau pake firebase soalnya firebase object not array
     tasks: {
-        // 'ID1' : {
-        //   name: 'Makan',
-        //   completed: false,
-        //   dueDate: '2021/04/05',
-        //   dueTime: '15:30'
-        // },
-        // 'ID2' : {
-        //   name: 'Kajian',
-        //   completed: false,
-        //   dueDate: '2021/04/06',
-        //   dueTime: '19:30'
-        // },
-        // 'ID3' : { 
-        //   name: 'Belajar',
-        //   completed: false,
-        //   dueDate: '2021/04/07',
-        //   dueTime: '12:30'
-        // }
+        'ID1' : {
+          name: 'Makan',
+          completed: false,
+          dueDate: '2021/04/05',
+          dueTime: '15:30'
+        },
+        'ID2' : {
+          name: 'Kajian',
+          completed: false,
+          dueDate: '2021/04/06',
+          dueTime: '19:30'
+        },
+        'ID3' : { 
+          name: 'Belajar',
+          completed: false,
+          dueDate: '2021/04/07',
+          dueTime: '12:30'
+        }
     }
 }
 

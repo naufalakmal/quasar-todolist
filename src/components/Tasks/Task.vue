@@ -11,7 +11,7 @@
 
         <q-item-section>
           <q-item-label
-          :class="{ 'text-strikethrough' : task.completed}">
+          :class="{ 'text-strikethrough' : task.completed }">
             {{ task.name }}
           </q-item-label>
         </q-item-section>
@@ -41,6 +41,14 @@
         </q-item-section>
 
         <q-item-section side>
+          <div class="row">
+          <q-btn
+            @click.stop='showEditTask = true'
+            flat
+            round
+            dense
+            color="primary"
+            icon="edit" />
           <q-btn
             @click.stop='promptToDelete(id)'
             flat
@@ -48,8 +56,18 @@
             dense
             color="red"
             icon="delete" />
+          </div>
         </q-item-section>        
+
+      <q-dialog v-model="showEditTask">
+        <edit-task
+          :id="id"
+          :task="task"
+          @close="showEditTask = false" />
+      </q-dialog>
+
       </q-item>
+
 </template>
 
 <script>
@@ -58,6 +76,11 @@ import { mapActions } from 'vuex'
 export default {
     // dari store
     props: ['task','id'],
+    data() {
+      return {
+        showEditTask: false
+      }
+    },
     methods: {
       // mapActions ngambil data action dari store-tasks
       ...mapActions('tasks', ['updateTask','deleteTask']),
@@ -71,6 +94,9 @@ export default {
             this.deleteTask(id)
           })
       }
+    },
+    components :{
+      'edit-task' : require('components/Tasks/Modals/EditTask.vue').default
     }
 }
 </script>
